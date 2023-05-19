@@ -43,3 +43,9 @@ c:
 	docker-compose down && \
 	docker system prune -a && \
 	docker-compose ps -a
+
+h:
+	docker-compose down && \
+	heroku container:push web -a hisui-hunter-guild && \
+	heroku container:release web -a hisui-hunter-guild && \
+	heroku open -a hisui-hunter-guild
