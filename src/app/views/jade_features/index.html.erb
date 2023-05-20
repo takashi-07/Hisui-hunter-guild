@@ -1,5 +1,59 @@
-<div class=" h-screen flex flex-col items-center justify-center">
-  <h1 class="text-6xl text-white text-center font-bold w-full" style="text-shadow: 0 0 10px rgba(0,0,0,0.5)">
-    ヒスイの特徴
-  </h1>
+<div class=" bg-green-300 flex flex-col items-center justify-center ">
+  <div class="text-gray-600 w-full ">
+    <div class="mt-20">
+      <h1 class="text-3xl">ヒスイの特徴</h1>
+      <div>
+        <h1>白っぽい石を探す</h1>
+        <p></p>
+      </div>
+      <div>
+        <h1>角ばった石を探す</h1>
+        <p></p>
+      </div>
+      <div>
+        <h1>石の表面に「味の素」のような結晶を探す</h1>
+        <p></p>
+      </div>
+      <div>
+        <h1>光の透過性をみる</h1>
+        <p></p>
+      </div>
+      <div>
+        <h1>ナイフで削ってみる</h1>
+        <p></p>
+      </div>
+      <div>
+        <h1>比重を測ってみる</h1>
+        <p></p>
+      </div>
+      <div>
+        <h1>乾いても艶がある</h1>
+        <p></p>
+      </div>
+    </div>
+    <div class=" mt-10 border-t ">
+      <h1 class=" text-3xl mt-2 ">ヒスイって何だろう</h1>
+      <div class=" mt-2 ">
+        <%= link_to "フォッサマグナミュージアム", "https://fmm.geo-itoigawa.com/event-learning/about_hisui", class: " text-blue-600 underline "  %>
+      </div>
+    </div>
+    <div class=" mt-10 border-t ">
+      <h1 class=" text-3xl mt-2 ">ヒスイ採取が出来る場所</h1>
+    </div>
+    <div class=" mt-10 border-t ">
+      <h1 class=" text-3xl mt-2 ">ヒスイ採取時の注意点</h1>
+      <h1 class=" text-2xl mt-2 ">採取禁止の場所がある</h1>
+    </div>
+    <div class=" mt-10 border-t ">
+      <h1 class=" text-3xl mt-2 ">ヒスイの鑑定をしてくれるところ</h1>
+      <ul class=" mt-2 ">
+        <li class=" mt-2 "><%= link_to "フォッサマグナミュージアム", "https://fmm.geo-itoigawa.com/info/appraisal/", class: "text-blue-600 underline " %></li>
+        <li class=" mt-2 "><%= link_to "ヒスイテラス", "https://www.asahi-tabi.com/asahimachi/1609/", class: " text-blue-600 underline" %></li>
+      </ul>
+    </div>
+  </div>
+  <div class=" mb-20 ">
+    <%= render "layouts/game start button" %>
+    <%= render "layouts/Button to return to the top page" %>
+  </div>
 </div>

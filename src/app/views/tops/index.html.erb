@@ -1,7 +1,7 @@
 <div class="bg-green-300 h-screen flex flex-col items-center justify-center">
   <h1 class="text-6xl text-white text-center font-bold w-full" style="text-shadow: 0 0 10px rgba(0,0,0,0.5)">
-    ヒスイを見分けられるようになろう！
+    ゲームを通じてヒスイを見分けられるようになろう！
   </h1>
-  <%= link_to "ギルド検定試験スタート", questions_path, class: " w-80 mt-10 rounded-lg bg-green-500 border-none text-white px-8 py-4 text-center no-underline inline-block text-lg" %>
-  <%= link_to "ヒスイの特徴について知ろう", jade_features_path, class: " w-80 mt-10 rounded-lg bg-green-500 border-none text-white px-8 py-4 text-center no-underline inline-block text-lg" %>
+  <%= render "layouts/game start button" %>
+  <%= render "layouts/button to learn about jade" %>
 </div>
