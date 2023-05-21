@@ -1,0 +1,13 @@
+<h1>あなたの点数は <%= session[:correct_count] %>/10点です！</h1>
+<% if session[:correct_count] >= 9 %>
+  <p>ヒスイマスター</p>
+<% elsif session[:correct_count] >= 7 %>
+  <p>上級ヒスイ冒険者</p>
+<% elsif session[:correct_count] >= 5 %>
+  <p>中級ヒスイ冒険者</p>
+<% elsif session[:correct_count] >= 3 %>
+  <p>初級ヒスイ冒険者</p>
+<% elsif session[:correct_count] >= 0 %>
+  <p>ヒスイ初心者</p>
+<% end %>
+<%= link_to '最初からやり直す', questions_path %>

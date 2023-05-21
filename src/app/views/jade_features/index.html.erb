@@ -1,7 +1,7 @@
-<div class=" bg-green-300 flex flex-col items-center justify-center ">
+<div class=" w-full ">
   <div class="text-gray-600 w-full ">
-    <div class="mt-20">
-      <h1 class="text-3xl">ヒスイの特徴</h1>
+    <div class="mt-20 border-t">
+      <h1 class="text-3xl mt-2">ヒスイの特徴</h1>
       <div>
         <h1>白っぽい石を探す</h1>
         <p></p>
@@ -52,8 +52,10 @@
       </ul>
     </div>
   </div>
-  <div class=" mb-20 ">
-    <%= render "layouts/game start button" %>
-    <%= render "layouts/Button to return to the top page" %>
-  </div>
+</div>
+<div class=" w-full mt-10 border-t ">
+</div>
+<div class=" mb-20 grid grid-cols-1 sm:grid-cols-2 gap-4 ">
+  <%= render "layouts/game start button" %>
+  <%= render "layouts/Button to return to the top page" %>
 </div>

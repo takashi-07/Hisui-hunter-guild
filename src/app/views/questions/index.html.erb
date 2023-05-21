@@ -1,9 +1,27 @@
-<div class=" bg-green-300 h-screen flex flex-col items-center justify-center">
-  <h1 class="text-6xl text-white text-center font-bold w-full" style="text-shadow: 0 0 10px rgba(0,0,0,0.5)">
-    翡翠ギルド検定試験
-  </h1>
-  <div class="mb-20 ">
-    <%= render "layouts/button to learn about jade" %>
-    <%= render "layouts/Button to return to the top page" %>
+<h1 class="text-6xl text-white text-center font-bold w-full mt-20" style="text-shadow: 0 0 10px rgba(0,0,0,0.5)">
+  翡翠ギルド検定試験
+</h1>
+<% if session[:started] %>
+  <div class=" w-full mt-10 h-screen">
+    <h1 class="text-5xl text-white text-center mt-10">問題 <%= session[:total_count]&.next %></h1>
+    <div class="container mx-auto">
+      <div class="flex justify-center mt-10">
+        <div class="flex mt-10">
+          <% @shuffled_buttons.each do |button| %>
+            <%= button_to answer_path(answer: button[0].split('/')[0]), method: :get, remote: true, class: 'image-button' do %>
+              <%= image_tag button[0], alt: button[1], class: 'rounded-full w-32 h-32 mr-5' %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
+<% end %>
+<% unless session[:started] %>
+  <%= link_to 'Start', start_path, class: 'btn btn-primary' %>
+<% end %>
+</div>
+<div class="mb-20 grid grid-cols-1 sm:grid-cols-2 gap-4">
+  <%= render "layouts/button to learn about jade" %>
+  <%= render "layouts/Button to return to the top page" %>
 </div>
