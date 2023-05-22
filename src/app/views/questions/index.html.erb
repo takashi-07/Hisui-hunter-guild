@@ -1,27 +1,49 @@
+<div class="sm:block lg:hidden">
+  <!-- このコンテンツ -->
+</div>
 <h1 class="text-6xl text-white text-center font-bold w-full mt-20" style="text-shadow: 0 0 10px rgba(0,0,0,0.5)">
   翡翠ギルド検定試験
 </h1>
-<% if session[:started] %>
-  <div class=" w-full mt-10 h-screen">
-    <h1 class="text-5xl text-white text-center mt-10">問題 <%= session[:total_count]&.next %></h1>
-    <div class="container mx-auto">
-      <div class="flex justify-center mt-10">
-        <div class="flex mt-10">
-          <% @shuffled_buttons.each do |button| %>
-            <%= button_to answer_path(answer: button[0].split('/')[0]), method: :get, remote: true, class: 'image-button' do %>
-              <%= image_tag button[0], alt: button[1], class: 'rounded-full w-32 h-32 mr-5' %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
-<% unless session[:started] %>
-  <%= link_to 'Start', start_path, class: 'btn btn-primary' %>
-<% end %>
+<%# 説明文 %>
+<div>
+  <p>モードを選んでね</p>
+  <p>
+    ヒスイの画像をクリックしてね
+  </p>
+  <p>
+    全部で10問だよ
+  </p>
+  <p>
+    イージーモードをは2択
+    ノーマルモードは5択
+    ハードモードは10択
+  </p>
+  <p>高ランク冒険者を目指して頑張ろう！</p>
+  <h1>
+    ヒスイギルドランク
+  </h1>
+  <p>
+    ヒスイマスター    :9点～10点
+    上級ヒスイ冒険者  :7点～8点
+    中級ヒスイ冒険者  :5点～6点
+    初級ヒスイ冒険者  :3点～4点
+    ヒスイ初心者      :0点～2点
+  </p>
 </div>
-<div class="mb-20 grid grid-cols-1 sm:grid-cols-2 gap-4">
+<%# ゲームボタン %>
+<div class="mb-20">
+  <%= link_to 'イージーモード', easy_gam_path(mode: 'easy'), class: 'btn btn-primary w-full sm:w-auto mt-10 rounded-lg bg-yellow-500 border-none text-white px-8 py-4 text-center no-underline inline-block text-lg ' %>
+  <%= link_to 'ノーマルモード', normal_gam_path(mode: 'normal'), class: 'btn btn-primary w-full sm:w-auto mt-10 rounded-lg bg-blue-500 border-none text-white px-8 py-4 text-center no-underline inline-block text-lg ' %>
+  <%= link_to 'ハードモード', hard_gam_path(mode: 'hard'), class: 'btn btn-primary w-full sm:w-auto mt-4 rounded-lg bg-red-500 border-none text-white px-8 py-4 text-center no-underline inline-block text-lg ' %>
+</div>
+<% if flash[:notice] || flash[:alert] %>
+  <%= form_tag(answer_path(answer: ''), id: 'next-question-form', method: :get) do %>
+    <%= hidden_field_tag :answer, '' %>
+  <% end %>
+<% end %>
+<div class=" grid grid-cols-1 sm:grid-cols-2 gap-4">
   <%= render "layouts/button to learn about jade" %>
   <%= render "layouts/Button to return to the top page" %>
+</div>
+</div>
 </div>

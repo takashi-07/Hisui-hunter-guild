@@ -1,0 +1,3 @@
+<% buttons = @easy_shuffled_buttons.first(10) %>
+<% @mode_name = "イージーモード" %>
+<%= render partial: "questions/modes", locals: { mode_name: @mode_name, buttons: buttons } %>

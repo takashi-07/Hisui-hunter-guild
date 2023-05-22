@@ -1,13 +1,19 @@
+<% mode = case session[:mode]
+  when 'easy' then 'イージーモード'
+  when 'normal' then 'ノーマルモード'
+  when 'hard' then 'ハードモード'
+  else '不明なモード'
+end %>
+<p>あなたは <strong><%= mode %></strong>でプレイしました。</p>
 <h1>あなたの点数は <%= session[:correct_count] %>/10点です！</h1>
-<% if session[:correct_count] >= 9 %>
-  <p>ヒスイマスター</p>
-<% elsif session[:correct_count] >= 7 %>
-  <p>上級ヒスイ冒険者</p>
-<% elsif session[:correct_count] >= 5 %>
-  <p>中級ヒスイ冒険者</p>
-<% elsif session[:correct_count] >= 3 %>
-  <p>初級ヒスイ冒険者</p>
-<% elsif session[:correct_count] >= 0 %>
-  <p>ヒスイ初心者</p>
-<% end %>
-<%= link_to '最初からやり直す', questions_path %>
+<% rank = case session[:correct_count]
+  when 9..10 then 'ヒスイマスター'
+  when 7..8 then '上級ヒスイ冒険者'
+  when 5..6 then '中級ヒスイ冒険者'
+  when 3..4 then '初級ヒスイ冒険者'
+  else 'ヒスイ初心者'
+end %>
+<p>あなたのランクは <strong><%= rank %></strong>です。</p>
+<%= link_to '最初からやり直す', request.referer || normal_gam_path, class: "w-full sm:w-auto mt-10 rounded-lg bg-green-500 border-none text-white px-8 py-4 text-center no-underline inline-block text-lg"  %>
+<%= link_to "モードを変更する", questions_path, class: "w-full sm:w-auto mt-10 rounded-lg bg-green-500 border-none text-white px-8 py-4 text-center no-underline inline-block text-lg" %>
+<%= render "layouts/Button to return to the top page" %>

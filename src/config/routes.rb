@@ -12,4 +12,9 @@ Rails.application.routes.draw do
   get 'result', to: 'questions#result'
   get 'questions_path', to: 'questions#reset_score'
   get 'start', to: 'questions#start'
+  post '/answer', to: 'questions#answer', as: :post_answer
+  get 'easy_gam', to: 'questions#easy_gam'
+  get 'normal_gam', to: 'questions#normal_gam'
+  get 'hard_gam', to: 'questions#hard_gam'
+
 end
