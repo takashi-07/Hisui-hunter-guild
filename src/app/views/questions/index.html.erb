@@ -1,49 +1,29 @@
-<div class="sm:block lg:hidden">
-  <!-- このコンテンツ -->
-</div>
-<h1 class="text-6xl text-white text-center font-bold w-full mt-20" style="text-shadow: 0 0 10px rgba(0,0,0,0.5)">
-  翡翠ギルド検定試験
-</h1>
-<%# 説明文 %>
-<div>
-  <p>モードを選んでね</p>
-  <p>
-    ヒスイの画像をクリックしてね
-  </p>
-  <p>
-    全部で10問だよ
-  </p>
-  <p>
-    イージーモードをは2択
-    ノーマルモードは5択
-    ハードモードは10択
-  </p>
-  <p>高ランク冒険者を目指して頑張ろう！</p>
-  <h1>
-    ヒスイギルドランク
+<div class=" w-full flex flex-col items-center justify-center">
+  <h1 class="mt-20 text-2xl sm:text-4xl md:text-6xl text-white text-center font-bold w-full" style="text-shadow: 0 0 10px rgba(0,0,0,0.5)">
+    翡翠ギルド検定試験
   </h1>
-  <p>
-    ヒスイマスター    :9点～10点
-    上級ヒスイ冒険者  :7点～8点
-    中級ヒスイ冒険者  :5点～6点
-    初級ヒスイ冒険者  :3点～4点
-    ヒスイ初心者      :0点～2点
-  </p>
-</div>
-<%# ゲームボタン %>
-<div class="mb-20">
-  <%= link_to 'イージーモード', easy_gam_path(mode: 'easy'), class: 'btn btn-primary w-full sm:w-auto mt-10 rounded-lg bg-yellow-500 border-none text-white px-8 py-4 text-center no-underline inline-block text-lg ' %>
-  <%= link_to 'ノーマルモード', normal_gam_path(mode: 'normal'), class: 'btn btn-primary w-full sm:w-auto mt-10 rounded-lg bg-blue-500 border-none text-white px-8 py-4 text-center no-underline inline-block text-lg ' %>
-  <%= link_to 'ハードモード', hard_gam_path(mode: 'hard'), class: 'btn btn-primary w-full sm:w-auto mt-4 rounded-lg bg-red-500 border-none text-white px-8 py-4 text-center no-underline inline-block text-lg ' %>
-</div>
-<% if flash[:notice] || flash[:alert] %>
-  <%= form_tag(answer_path(answer: ''), id: 'next-question-form', method: :get) do %>
-    <%= hidden_field_tag :answer, '' %>
-  <% end %>
-<% end %>
-<div class=" grid grid-cols-1 sm:grid-cols-2 gap-4">
-  <%= render "layouts/button to learn about jade" %>
-  <%= render "layouts/Button to return to the top page" %>
-</div>
-</div>
+  <div class="mt-10 bg-white p-8 rounded-lg shadow-lg text-gray-600">
+    <p class="text-lg">モードを選択してください</p>
+    <p class="text-lg">ヒスイの画像をクリックしください</p>
+    <p class="text-lg">全部で10問です</p>
+    <p class="text-lg">イージーモードは2択、ノーマルモードは5択、ハードモードは10択</p>
+    <p class="text-lg">高ランク冒険者を目指して頑張ろう！</p>
+    <h1 class="text-2xl font-bold mt-4">ヒスイギルドランク</h1>
+    <p class="text-lg">
+      ヒスイマスター : 9点～10点<br>
+      上級ヒスイ冒険者 : 7点～8点<br>
+      中級ヒスイ冒険者 : 5点～6点<br>
+      初級ヒスイ冒険者 : 3点～4点<br>
+      ヒスイ初心者 : 0点～2点
+    </p>
+  </div>
+  <div class="mb-15 ">
+    <%= link_to 'イージーモード', easy_gam_path(mode: 'easy'), class: 'btn btn-primary w-full sm:w-auto mt-10 rounded-lg bg-yellow-500 border-none text-white px-8 py-4 text-center no-underline inline-block text-lg' %>
+    <%= link_to 'ノーマルモード', normal_gam_path(mode: 'normal'), class: 'btn btn-primary w-full sm:w-auto mt-10 rounded-lg bg-blue-500 border-none text-white px-8 py-4 text-center no-underline inline-block text-lg' %>
+    <%= link_to 'ハードモード', hard_gam_path(mode: 'hard'), class: 'btn btn-primary w-full sm:w-auto mt-10 rounded-lg bg-red-500 border-none text-white px-8 py-4 text-center no-underline inline-block text-lg' %>
+    <div class=" mb-20 grid grid-cols-1 sm:grid-cols-2 gap-4 ">
+      <%= render "Buttons/hisui-About-Button" %>
+      <%= render "Buttons/top-Page-Button" %>
+    </div>
+  </div>
 </div>

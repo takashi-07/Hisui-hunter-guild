@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="bg-green-300 w-full >
   <head>
     <title>App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,9 +12,7 @@
   <body>
     <main>
       <%= render "layouts/header" %>
-      <div class="bg-green-300 w-full h-screen flex flex-col items-center justify-center">
-        <%= yield %>
-      </div>
+      <%= yield %>
     </main>
     <%= render "layouts/footer" %>
   </body>
