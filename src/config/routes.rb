@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root to: "tops#index"
-  
+  root to: 'tops#index'
+
   resources :jade_features, only: [:index]
 
   resources :questions, only: [:index]
@@ -16,5 +18,4 @@ Rails.application.routes.draw do
   get 'easy_gam', to: 'questions#easy_gam'
   get 'normal_gam', to: 'questions#normal_gam'
   get 'hard_gam', to: 'questions#hard_gam'
-
 end
